@@ -117,7 +117,15 @@ public class goFish {
         boolean winner = false;
         for (int i = 0; i < players.size(); i++) {
             for (int x = 0; x < players.get(i).getSize(); x++) {
-                players.get(i).getCard(x).getValNum()
+                int cardNum = 0;
+                for (int y = 0; y < players.get(i).getSize(); y++) {
+                    if(players.get(i).getCard(x).getValNum() == players.get(i).getCard(y).getValNum()){
+                        cardNum++;
+                        if (cardNum >= 4){
+                            players.get(i).setBooks(1);
+                        }
+                    }
+                }
             }
         }
         return winner;

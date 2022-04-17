@@ -7,10 +7,19 @@ import java.util.ArrayList;
  */
 public class Player {
     private String name;
+    private int books = 0;
     private GroupOfCards hand = new GroupOfCards();
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public int getBooks() {
+        return books;
+    }
+
+    public void setBooks(int books) {
+        this.books += books;
     }
 
     public String getName() {
