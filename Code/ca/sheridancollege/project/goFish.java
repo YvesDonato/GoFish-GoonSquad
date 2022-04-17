@@ -114,7 +114,7 @@ public class goFish {
     }
 
     public boolean declareWinner(){
-        boolean winner = false;
+        boolean winner = true;
         for (int i = 0; i < players.size(); i++) {
             for (int x = 0; x < players.get(i).getSize(); x++) {
                 int cardNum = 0;
