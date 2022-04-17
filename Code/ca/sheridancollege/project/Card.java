@@ -1,27 +1,80 @@
+//package ca.sheridancollege.project;
 /**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
-package ca.sheridancollege.project;
-
-/**
- * A class to be used as the base Card class for the project. Must be general enough to be instantiated for any Card
- * game. Students wishing to add to the code should remember to add themselves as a modifier.
  *
- * @author dancye
- * @modified by Yves Donato
- * @modified by David Vallecampo
+ * @author by Yves Donato
+ * @author by David Vallecampo
  */
-public abstract class Card {
-    //default modifier for child classes
+enum Value {
+    ACE, JACK, QUEEN,
+    KING
+}
+enum Suit {
+    HEARTS, DIAMONDS, SPADES, CLUBS
+}
+public class Card {
+    private int valNum;
+    private String valstr;
+    private int suitNum;
+    private String suitstr;
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
-    @Override
-    public abstract String toString();
+    public Card(int valNum, int suitNum){
+        this.valNum = valNum;
+        this.suitNum = suitNum;
+    }
+
+    public String getValstr() {
+        if(valNum == 1){
+            valstr = String.valueOf(Value.ACE + " OF");
+        }
+        else if (valNum == 11){
+            valstr = String.valueOf(Value.JACK + " OF");
+        }
+        else if (valNum == 12){
+            valstr = String.valueOf(Value.QUEEN + " OF");
+        }
+        else if (valNum == 13){
+            valstr = String.valueOf(Value.KING + " OF");
+        }
+        else{
+            valstr = String.valueOf(valNum);
+        }
+        return valstr;
+    }
+
+    public String getSuitstr() {
+        if(suitNum == 1){
+            suitstr = String.valueOf(Suit.HEARTS);
+        }
+        else if(suitNum == 2){
+            suitstr = String.valueOf(Suit.DIAMONDS);
+        }
+        else if(suitNum == 3){
+            suitstr = String.valueOf(Suit.SPADES);
+        }
+        else if(suitNum == 4){
+            suitstr = String.valueOf(Suit.CLUBS);
+        }
+        return suitstr;
+    }
+
+    public int getValNum() {
+        return valNum;
+    }
+
+    public void setValNum(int valNum) {
+        this.valNum = valNum;
+    }
+
+    public int getSuitNum() {
+        return suitNum;
+    }
+
+    public void setSuitNum(int suitNum) {
+        this.suitNum = suitNum;
+    }
+
+    public String toString(){
+        return getValstr() + " " + getSuitstr();
+    }
 
 }
