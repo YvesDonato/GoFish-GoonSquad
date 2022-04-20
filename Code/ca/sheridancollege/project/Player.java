@@ -1,5 +1,4 @@
 //package ca.sheridancollege.project;
-import java.util.ArrayList;
 /**
  *
  * @author by Yves Donato
@@ -38,14 +37,14 @@ public class Player {
         hand.setCards(card);
     }
 
-    public void showHand(){
+    public void showHand() {
         System.out.println("\n" + name + "'s " +
                 "Hand:");
         hand.showCards();
     }
+
     public int getSize() {
         return hand.getSize();
     }
-
 
 }

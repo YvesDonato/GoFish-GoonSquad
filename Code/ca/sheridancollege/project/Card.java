@@ -5,53 +5,47 @@
  * @author by David Vallecampo
  */
 enum Value {
-    ACE, JACK, QUEEN,
-    KING
+    ACE, JACK, QUEEN, KING
 }
+
 enum Suit {
     HEARTS, DIAMONDS, SPADES, CLUBS
 }
+
 public class Card {
     private int valNum;
     private String valstr;
     private int suitNum;
     private String suitstr;
 
-    public Card(int valNum, int suitNum){
+    public Card(int valNum, int suitNum) {
         this.valNum = valNum;
         this.suitNum = suitNum;
     }
 
     public String getValstr() {
-        if(valNum == 1){
+        if (valNum == 1) {
             valstr = String.valueOf(Value.ACE + " OF");
-        }
-        else if (valNum == 11){
+        } else if (valNum == 11) {
             valstr = String.valueOf(Value.JACK + " OF");
-        }
-        else if (valNum == 12){
+        } else if (valNum == 12) {
             valstr = String.valueOf(Value.QUEEN + " OF");
-        }
-        else if (valNum == 13){
+        } else if (valNum == 13) {
             valstr = String.valueOf(Value.KING + " OF");
-        }
-        else{
+        } else {
             valstr = String.valueOf(valNum);
         }
         return valstr;
     }
 
     public String getSuitstr() {
-        if(suitNum == 1){
+        if (suitNum == 1) {
             suitstr = String.valueOf(Suit.HEARTS);
-        }
-        else if(suitNum == 2){
+        } else if (suitNum == 2) {
             suitstr = String.valueOf(Suit.DIAMONDS);
-        }
-        else if(suitNum == 3){
+        } else if (suitNum == 3) {
             suitstr = String.valueOf(Suit.SPADES);
-        }
-        else if(suitNum == 4){
+        } else if (suitNum == 4) {
             suitstr = String.valueOf(Suit.CLUBS);
         }
         return suitstr;
@@ -73,7 +67,7 @@ public class Card {
         this.suitNum = suitNum;
     }
 
-    public String toString(){
+    public String toString() {
         return getValstr() + " " + getSuitstr();
     }
 
