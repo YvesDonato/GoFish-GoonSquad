@@ -1,5 +1,3 @@
-//package ca.sheridancollege.project;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,12 +8,14 @@ import java.util.Scanner;
  * @modified by Yves Donato
  * @modified by David Vallecampo
  */
+// The main code for goFish
 public class goFish {
     Scanner scan = new Scanner(System.in);
-    private ArrayList<Player> players = new ArrayList();
-    private GroupOfCards deck = new GroupOfCards();
+    private ArrayList<Player> players = new ArrayList(); // Arraylist of players
+    private GroupOfCards deck = new GroupOfCards(); // Arraylist of cards
     private int numplayers = 0;
 
+    // getting the number of players
     public ArrayList<Player> getPlayers() {
         return players;
     }
@@ -24,6 +24,7 @@ public class goFish {
         this.players = players;
     }
 
+    // Method to create the deck
     public void createDeck() {
         for (int x = 1; x <= 4; x++) {
             for (int y = 1; y <= 13; y++) {
@@ -31,13 +32,15 @@ public class goFish {
                 deck.setCards(card);
             }
         }
-        deck.shuffle();
+        deck.shuffle(); // shuffles the deck
     }
 
+    // Checking if the said card it inside the players hand
     public void Check(int numVal, int playerSel, int currPlayer) {
         int index = -1;
         int playerNum = -1;
         int caught = 0;
+        // check the hands of the player
         for (int i = 0; i < players.get(playerSel - 1).getSize(); i++) {
             if (players.get(playerSel - 1).getCard(i).getValNum() == numVal) {
                 index = i;
@@ -57,6 +60,7 @@ public class goFish {
         }
     }
 
+    // Play is the main base code for gofish
     public void play() {
         System.out.println("Enter number of players (minimum of 2)");
         numplayers = scan.nextInt();
@@ -110,6 +114,8 @@ public class goFish {
         }
     }
 
+    // Declares the winner through check if there are cards and if the player
+    // has more cards
     public boolean declareWinner() {
         boolean winner = true;
         for (int i = 0; i < players.size(); i++) {
