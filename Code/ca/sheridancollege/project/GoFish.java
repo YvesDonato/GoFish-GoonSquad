@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  *
  * @author dancye
@@ -8,14 +7,14 @@ import java.util.Scanner;
  * @modified by Yves Donato
  * @modified by David Vallecampo
  */
-// The main code for goFish
-public class goFish {
+// The main code for GoFish
+public class GoFish {
     Scanner scan = new Scanner(System.in);
     private ArrayList<Player> players = new ArrayList<Player>(); // Arraylist of players
     private GroupOfCards deck = new GroupOfCards(); // Arraylist of cards
     private int numPlayers = 0;
 
-    public GroupOfCards getDeck(){
+    public GroupOfCards getDeck() {
         return deck;
     }
 
@@ -61,7 +60,7 @@ public class goFish {
         return cardCaught;
     }
 
-    // Play is the main base code for gofish
+    // Play is the main base code for GoFish
     public void play() {
 
         initialSetUp();

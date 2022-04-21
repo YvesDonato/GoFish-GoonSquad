@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-public class goFishTest {
+public class GoFishTest {
 
     @Test
     public void testGetWinnerWithWinner() {
-        goFish newFish = new goFish();
+        GoFish newFish = new GoFish();
         newFish.createDeck();
 
         ArrayList<Card> player1Cards = new ArrayList<Card>();
@@ -30,7 +30,7 @@ public class goFishTest {
 
     @Test
     public void testGetWinnerWithDraw() {
-        goFish newFish = new goFish();
+        GoFish newFish = new GoFish();
         newFish.createDeck();
 
         ArrayList<Card> player1Cards = new ArrayList<Card>();
@@ -49,7 +49,7 @@ public class goFishTest {
 
     @Test
     public void testGameOverCheckTrue() {
-        goFish newFish = new goFish();
+        GoFish newFish = new GoFish();
         newFish.createDeck();
 
         newFish.addPlayer("Player1", new ArrayList<Card>());
@@ -64,7 +64,7 @@ public class goFishTest {
 
     @Test
     public void testGameOverCheckFalse() {
-        goFish newFish = new goFish();
+        GoFish newFish = new GoFish();
         newFish.createDeck();
 
         newFish.addPlayer("Player1", new ArrayList<Card>());
