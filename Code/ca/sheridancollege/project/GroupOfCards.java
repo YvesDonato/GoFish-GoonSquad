@@ -11,14 +11,13 @@ import java.util.Collections;
 // Group of Cards or deck
 public class GroupOfCards {
     private ArrayList<Card> cards = new ArrayList(); // arraylist of Cards
-    private int size = 0; // Size of the deck (num of cards)
 
     // Getters and Setters
     public ArrayList<Card> getCards() {
         return cards;
     }
 
-    public void setCards(Card card) {
+    public void addCard(Card card) {
         cards.add(card);
     }
 
@@ -26,13 +25,14 @@ public class GroupOfCards {
         return cards.get(i);
     }
 
-    public void removeCard(int i){
+    public Card takeCard(int i){
+        Card card = getCard(i);
         cards.remove(i);
+        return card;
     }
 
     public int getSize() {
-        size = cards.size();
-        return size;
+        return cards.size();
     }
 
     // Shuffle the cards within the arraylist

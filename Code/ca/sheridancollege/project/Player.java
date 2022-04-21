@@ -31,12 +31,12 @@ public class Player {
         return hand.getCard(i);
     }
 
-    public void removeCard(int i) {
-        hand.removeCard(i);
+    public Card takeCard(int i) {
+        return hand.takeCard(i);
     }
 
-    public void setHand(Card card) {
-        hand.setCards(card);
+    public void addCardToHand(Card card) {
+        hand.addCard(card);
     }
 
     // Printing out the Hand
