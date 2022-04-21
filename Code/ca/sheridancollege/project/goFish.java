@@ -11,7 +11,7 @@ import java.util.Scanner;
 // The main code for goFish
 public class goFish {
     Scanner scan = new Scanner(System.in);
-    private ArrayList<Player> players = new ArrayList(); // Arraylist of players
+    private ArrayList<Player> players = new ArrayList<Player>(); // Arraylist of players
     private GroupOfCards deck = new GroupOfCards(); // Arraylist of cards
     private int numPlayers = 0;
 
@@ -86,13 +86,15 @@ public class goFish {
             System.out.println();
             if (declareWinner()) {
                 break;
-            } else if (x == numPlayers - 1) {
-                x = 0;
+            } else if (x == numPlayers - 1 && !caughtCard) {
+                x = -1;
+                System.out.println("Restarting loop");
             }
             if (caughtCard) {
                 x--;
                 System.out.println("Go again");
             }
+            System.out.println(x);
         }
     }
 
@@ -113,7 +115,6 @@ public class goFish {
         createDeck();
 
         int numOfCards = numPlayers == 2 ? 5 : 7;
-
         for (int x = 0; x < numPlayers; x++) {
             for (int y = 0; y < numOfCards; y++) {
                 players.get(x).addCardToHand(deck.takeCard(0));
@@ -126,27 +127,25 @@ public class goFish {
     // has more cards
     public boolean declareWinner() {
         boolean winner = false;
-        for (int i = 0; i < players.size(); i++) {
-            for (int x = 0; x < players.get(i).getSize(); x++) {
-                int cardNum = 0;
-                for (int y = 0; y < players.get(i).getSize(); y++) {
-                    if (players.get(i).getCard(x).getValNum() == players.get(i).getCard(y).getValNum()) {
-                        cardNum++;
-                        if (cardNum >= 4) {
-                            players.get(i).setBooks(1);
-                        }
-                    }
-                }
-            }
-        }
         if (deck.getSize() == 0) {
             winner = true;
+            int highScore = 0;
+            String winnerName = "";
             for (int i = 0; i < players.size(); i++) {
-                System.out.println(players.get(i).getName() + ": " + players.get(i).getBooks());
+
+                int playersScore = players.get(i).getBooks();
+                String playersName = players.get(i).getName();
+                System.out.println(playersName + ": " + playersScore);
+
+                if(playersScore > highScore){
+                    highScore = playersScore;
+                    winnerName = playersName;
+                } else if (playersScore == highScore){
+                    winnerName = "DRAW";
+                }
             }
-            System.out.println("GAME OVER");
+            System.out.println(winnerName == "DRAW" ? "Game is a DRAW" : "The winner is " + winnerName + "!!!");
         }
         return winner;
     }
-
 }

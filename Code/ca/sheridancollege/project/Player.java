@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  *
  * @author by Yves Donato
@@ -6,7 +8,6 @@
 // Class of the player contains the name, hand, and number of books
 public class Player {
     private String name;
-    private int books = 0;
     private GroupOfCards hand = new GroupOfCards();
 
     // Constructor
@@ -14,13 +15,16 @@ public class Player {
         this.name = name;
     }
 
-    //Getters and Setters
+    // Getters and Setters
     public int getBooks() {
+        int books = 0;
+        for (int x = 1; x <= 13; x++) {
+            int y = x;
+            if (getHand().stream().filter((f) -> f.getValNum() == y).count() == 4) {
+                books++;
+            }
+        }
         return books;
-    }
-
-    public void setBooks(int books) {
-        this.books += books;
     }
 
     public String getName() {
@@ -37,6 +41,10 @@ public class Player {
 
     public void addCardToHand(Card card) {
         hand.addCard(card);
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand.getCards();
     }
 
     // Printing out the Hand

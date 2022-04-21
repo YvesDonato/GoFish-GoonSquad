@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 // Group of Cards or deck
 public class GroupOfCards {
-    private ArrayList<Card> cards = new ArrayList(); // arraylist of Cards
+    private ArrayList<Card> cards = new ArrayList<Card>(); // arraylist of Cards
 
     // Getters and Setters
     public ArrayList<Card> getCards() {
